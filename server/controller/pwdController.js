@@ -6,7 +6,8 @@ pwdController.getPassword = (req, res, next) => {
   model.PasswordStorage.find({})
     .exec()
     .then((personData) => {
-      console.log("connected to PasswordManager");
+      res.locals.fetched = personData;
+      //   console.log(personData);
       return next();
     })
     .catch((err) => {

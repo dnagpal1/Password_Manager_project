@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import { render } from "react-dom";
 import { Provider } from "react-redux";
-// import MainContainer from "../client/containers/MainContainer";
-
+import MainContainer from "../client/containers/MainContainer";
+import "../client/style.css";
 class App extends Component {
   constructor(props) {
     super(props);
@@ -11,7 +11,7 @@ class App extends Component {
     return (
       <div>
         <h1>Password Manager</h1>
-        {/* <MainContainer /> */}
+        <MainContainer />
       </div>
     );
   }

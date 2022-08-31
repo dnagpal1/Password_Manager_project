@@ -8,7 +8,7 @@ import passwordReducer from "../client/reducers/passwordReducer";
 const combinedReducers = combineReducers({
   passwordReducerFunc: passwordReducer,
 });
-require("../client/style.css");
+// require("../client/style.css");
 render(
   <Provider store={store}>
     <App />

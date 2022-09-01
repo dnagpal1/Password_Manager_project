@@ -9,8 +9,8 @@ class App extends Component {
   }
   render() {
     return (
-      <div>
-        <h1>Password Manager</h1>
+      <div className="main">
+        <h1 id="title">Password Manager</h1>
         <MainContainer />
       </div>
     );

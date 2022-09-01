@@ -15,5 +15,9 @@ router.post("/post", pwdController.postAccount, (req, res) => {
   return res.status(200).json(res.locals.newAccount);
 });
 
+router.delete("/", pwdController.deleteAccount, (req, res) => {
+  return res.status(200).json("account deleted");
+});
+
 //-----Export------
 module.exports = router;

@@ -6,9 +6,11 @@ const PasswordDisplay = (props) => {
     accounts.push(
       <Account
         key={props.loadAccounts[i]._id}
+        accountId={props.loadAccounts[i]._id}
         website={props.loadAccounts[i].website}
         username={props.loadAccounts[i].username}
         password={props.loadAccounts[i].password}
+        deleteAccount={props.deleteAccount}
       />
     );
     // console.log(props.loadAccounts[i].website, "hi");

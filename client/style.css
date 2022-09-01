@@ -1,11 +1,24 @@
 body {
-  /* background: lightblue; */
+  background: lightblue;
+}
+
+div h1 {
+  background-color: lightblue;
+}
+.main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 20px;
+}
+.container {
+  background: lightblue;
 }
 .createMarket {
   display: flex;
   justify-content: center;
-  align-items: center;
-  gap: 40px;
+  /* align-items: center; */
 }
 
 .createMarket span {
@@ -16,7 +29,6 @@ body {
 }
 .input-form {
   display: flex;
-  gap: 40px;
 }
 * {
   box-sizing: border-box;
@@ -24,7 +36,6 @@ body {
   margin: 0;
   padding: 0;
   color: #393939;
-  background-color: #fff;
 }
 
 body {
@@ -32,11 +43,12 @@ body {
 }
 
 .outerBox {
-  max-width: 650px;
+  max-width: 80%;
   margin: 0 auto;
   padding: 10px;
   box-shadow: 10px 15px 39px rgba(0, 0, 0, 0.2);
-  border-radius: 5px;
+  border-radius: 10px;
+  background-color: #fff;
 }
 
 .innerbox {
@@ -44,8 +56,13 @@ body {
   width: 95%;
   margin: 15px auto;
   box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  /* align-items: center; */
+  background-color: #fff;
+  border-radius: 10px;
 }
-
 .displayBox {
   overflow: auto;
   padding-top: 10px;
@@ -53,11 +70,17 @@ body {
 
 .marketBox {
   padding: 5px;
-  width: 30%;
+  width: 200px;
   margin: 5px 5px 13px 10px;
   float: left;
   font-size: 0.8em;
   box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2);
+  background-color: #fff;
+  border-radius: 10px;
+}
+
+.marketBox:hover {
+  box-shadow: 10px 10px 15px lightblue;
 }
 
 #header {
@@ -81,10 +104,4 @@ label {
 button {
   padding: 3px;
   margin: 3px;
-}
-
-.createMarket {
-  display: flex;
-  /* justify-content: center; */
-  align-items: center;
 }

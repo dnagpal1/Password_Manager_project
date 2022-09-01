@@ -36,6 +36,7 @@ class PasswordContainer extends Component {
     super(props);
     this.fetchAccounts = this.fetchAccounts.bind(this);
     this.postAccount = this.postAccount.bind(this);
+    this.deleteAccount = this.deleteAccount.bind(this);
   }
 
   handleclick = (value) => () => {
@@ -59,6 +60,29 @@ class PasswordContainer extends Component {
       .then((response) => response.json())
       .then(this.fetchAccounts);
   }
+  deleteAccount(website, username, password) {
+    fetch(
+      `/pwd/?website=${website}&username=${username}&password=${password}`,
+      {
+        method: "DELETE",
+        headers: {
+          "Content-type": "application/json",
+        },
+      }
+    )
+      .then((res) => {
+        if (res.ok) {
+          console.log("HTTP request successful");
+        } else {
+          console.log("HTTP request unsuccessful");
+        }
+        return res;
+      })
+      .then((res) => res.json())
+      .then((data) => console.log(data))
+      .then(this.fetchAccounts)
+      .catch((error) => console.log(error));
+  }
   componentDidMount() {
     this.fetchAccounts();
   }
@@ -72,7 +96,10 @@ class PasswordContainer extends Component {
           fetchAccounts={this.fetchAccounts}
           {...this.props}
         />
-        <PasswordDisplay loadAccounts={this.props.accountList} />
+        <PasswordDisplay
+          loadAccounts={this.props.accountList}
+          deleteAccount={this.deleteAccount}
+        />
       </div>
     );
   }

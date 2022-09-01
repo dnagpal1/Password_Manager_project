@@ -7,7 +7,7 @@ pwdController.getPassword = (req, res, next) => {
     .exec()
     .then((personData) => {
       res.locals.fetched = personData;
-      //   console.log(personData);
+      // console.log(personData);
       return next();
     })
     .catch((err) => {
@@ -34,6 +34,27 @@ pwdController.postAccount = (req, res, next) => {
     .catch((err) => {
       next({
         log: "pwdController.postAccount ERROR: data not found",
+        message: { err: "Error occured" },
+      });
+    });
+};
+
+pwdController.deleteAccount = (req, res, next) => {
+  console.log(req.query);
+  const { website, username, password } = req.query;
+  const deleteAccount = {
+    website,
+    username,
+    password,
+  };
+  model.PasswordStorage.deleteOne(deleteAccount)
+    .then((data) => {
+      console.log(data, "was deleted");
+      return next();
+    })
+    .catch((err) => {
+      next({
+        log: "pwdController.deleteAccount ERROR: data not found",
         message: { err: "Error occured" },
       });
     });

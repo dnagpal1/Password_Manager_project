@@ -37,6 +37,7 @@ class PasswordContainer extends Component {
     this.fetchAccounts = this.fetchAccounts.bind(this);
     this.postAccount = this.postAccount.bind(this);
     this.deleteAccount = this.deleteAccount.bind(this);
+    this.updateAccount = this.updateAccount.bind(this);
   }
 
   handleclick = (value) => () => {
@@ -83,6 +84,22 @@ class PasswordContainer extends Component {
       .then(this.fetchAccounts)
       .catch((error) => console.log(error));
   }
+
+  updateAccount(website, username, password, accountId) {
+    fetch(
+      `/pwd/?website=${website}&username=${username}&password=${password}&_id=${accountId}`,
+      {
+        method: "PATCH",
+        headers: { "Content-Type": "application/json" },
+      }
+    )
+      .then((res) => res.json())
+      .then((updatedAccount) => {
+        console.log(updatedAccount);
+      })
+      .then(this.fetchAccounts)
+      .catch((err) => console.log("Patch: ERROR Account not Found: ", err));
+  }
   componentDidMount() {
     this.fetchAccounts();
   }
@@ -99,6 +116,13 @@ class PasswordContainer extends Component {
         <PasswordDisplay
           loadAccounts={this.props.accountList}
           deleteAccount={this.deleteAccount}
+          newWebsite={this.props.newWebsite}
+          newUsername={this.props.newUsername}
+          newPassword={this.props.newPassword}
+          updateAccount={this.updateAccount}
+          newWeb={this.props.newWeb}
+          newPwd={this.props.newPwd}
+          newUsr={this.props.newUsr}
         />
       </div>
     );

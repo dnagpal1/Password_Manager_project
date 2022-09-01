@@ -5,6 +5,11 @@ body {
 div h1 {
   background-color: lightblue;
 }
+
+#title {
+  font-family: "Grand Hotel";
+  font-size: 3em;
+}
 .main {
   display: flex;
   justify-content: center;
@@ -32,7 +37,8 @@ div h1 {
 }
 * {
   box-sizing: border-box;
-  font-family: "Ubuntu Light", "Century Gothic", sans-serif;
+  /* font-family: "Grand Hotel"; */
+  font-family: "Roboto", "Century Gothic", sans-serif;
   margin: 0;
   padding: 0;
   color: #393939;
@@ -62,7 +68,18 @@ body {
   /* align-items: center; */
   background-color: #fff;
   border-radius: 10px;
+  gap: 20px;
 }
+
+#totalAccounts {
+  font-size: large;
+}
+
+.innerbox:hover {
+  /* width: 200px; */
+  box-shadow: 10px 10px 15px lightblue;
+}
+
 .displayBox {
   overflow: auto;
   padding-top: 10px;

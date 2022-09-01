@@ -11,6 +11,13 @@ const PasswordDisplay = (props) => {
         username={props.loadAccounts[i].username}
         password={props.loadAccounts[i].password}
         deleteAccount={props.deleteAccount}
+        newWebsite={props.newWebsite}
+        newUsername={props.newUsername}
+        newPassword={props.newPassword}
+        updateAccount={props.updateAccount}
+        newWeb={props.newWeb}
+        newPwd={props.newPwd}
+        newUsr={props.newUsr}
       />
     );
     // console.log(props.loadAccounts[i].website, "hi");

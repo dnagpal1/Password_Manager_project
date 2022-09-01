@@ -28,21 +28,21 @@ const passwordReducer = (state = initialState, action) => {
       };
     case types.NEW_WEBSITE:
       newWeb = action.payload;
-      // console.log(state);
+      console.log(newWeb);
       return {
         ...state,
         newWeb,
       };
     case types.NEW_USERNAME:
       newUsr = action.payload;
-      // console.log(newUsr);
+      console.log(newUsr);
       return {
         ...state,
         newUsr,
       };
     case types.NEW_PASSWORD:
       newPwd = action.payload;
-      // console.log(state);
+      console.log(newPwd);
       return {
         ...state,
         newPwd,

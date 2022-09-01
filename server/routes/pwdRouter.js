@@ -19,5 +19,9 @@ router.delete("/", pwdController.deleteAccount, (req, res) => {
   return res.status(200).json("account deleted");
 });
 
+router.patch("/", pwdController.updateAccount, (req, res) => {
+  return res.status(200).json("account updated");
+});
+
 //-----Export------
 module.exports = router;

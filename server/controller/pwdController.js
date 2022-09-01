@@ -60,4 +60,26 @@ pwdController.deleteAccount = (req, res, next) => {
     });
 };
 
+pwdController.updateAccount = (req, res, next) => {
+  console.log(req.query);
+  const { website, username, password, _id } = req.query;
+  const updateAccount = {
+    website,
+    username,
+    password,
+  };
+  console.log(_id);
+  model.PasswordStorage.findByIdAndUpdate({ _id }, updateAccount)
+    .then((data) => {
+      console.log(data, "was updated");
+      return next();
+    })
+    .catch((err) => {
+      next({
+        log: "pwdController.deleteAccount ERROR: data not found",
+        message: { err: "Error occured" },
+      });
+    });
+};
+
 module.exports = pwdController;

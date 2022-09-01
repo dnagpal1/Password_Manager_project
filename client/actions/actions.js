@@ -16,6 +16,16 @@ export const newWebsiteActionCreator = (newWebsite) => ({
   payload: newWebsite,
 });
 
+export const newUsernameActionCreator = (newUsername) => ({
+  type: types.NEW_USERNAME,
+  payload: newUsername,
+});
+
+export const newPasswordActionCreator = (newPassword) => ({
+  type: types.NEW_PASSWORD,
+  payload: newPassword,
+});
+
 // export const deleteCardActionCreator = (marketId) => ({
 //   type: types.DELETE_CARD,
 //   payload: marketId,

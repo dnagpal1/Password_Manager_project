@@ -3,21 +3,23 @@ import * as types from "../constants/actionTypes";
 const initialState = {
   totalAccounts: 0,
   accountList: [],
-  newWebsite: "",
-  newUsername: "",
-  newPassword: "",
+  newWeb: "",
+  newUsr: "",
+  newPwd: "",
 };
 
 const passwordReducer = (state = initialState, action) => {
-  let [accountList, totalAccounts, newWebsite, newUsername, newPassword] = [
+  let [accountList, totalAccounts, newWeb, newUsr, newPwd] = [
     [],
     0,
+    "",
+    "",
     "",
   ];
 
   switch (action.type) {
     case types.LOAD_ACCOUNT:
-      accountList = [...state.accountList].concat(action.payload);
+      accountList = action.payload;
       totalAccounts = action.payload.length;
       return {
         ...state,
@@ -25,14 +27,28 @@ const passwordReducer = (state = initialState, action) => {
         totalAccounts,
       };
     case types.NEW_WEBSITE:
-      newWebsite = action.payload;
-      console.log(newWebsite);
+      newWeb = action.payload;
+      // console.log(state);
       return {
         ...state,
-        newWebsite,
+        newWeb,
+      };
+    case types.NEW_USERNAME:
+      newUsr = action.payload;
+      // console.log(newUsr);
+      return {
+        ...state,
+        newUsr,
+      };
+    case types.NEW_PASSWORD:
+      newPwd = action.payload;
+      // console.log(state);
+      return {
+        ...state,
+        newPwd,
       };
     case types.ADD_ACCOUNT:
-      console.log(action);
+      // console.log(state);
 
       return {
         ...state,

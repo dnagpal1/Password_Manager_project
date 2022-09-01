@@ -1,16 +1,24 @@
 import React from "react";
 
-const AccountCreator = (props) => {
+const AccountCreator = ({
+  newWeb,
+  newPwd,
+  newUsr,
+  postAccount,
+  newWebsite,
+  newUsername,
+  newPassword,
+  fetchAccounts,
+}) => {
   const handleSubmit = (e) => {
+    // console.log(fetchAccount);
     e.preventDefault();
-    props.postAccount();
-    // // props.createAccount({
-    // //   website: document.querySelector("#website-input").value,
-    // //   username: document.querySelector("#username-input").value,
-    // //   password: document.querySelector("#pwd-input").value,
-    // // });
+    postAccount({
+      website: newWeb,
+      username: newUsr,
+      password: newPwd,
+    });
   };
-
   return (
     <div className="createBox">
       <h4>Create New Account</h4>
@@ -20,10 +28,20 @@ const AccountCreator = (props) => {
             id="website-input"
             type="text"
             placeholder="Website"
-            onChange={(e) => props.newWebsite(e.target.value)}
+            onChange={(e) => newWebsite(e.target.value)}
           />
-          <input id="username-input" type="text" placeholder="Username" />
-          <input id="pwd-input" type="text" placeholder="Password" />
+          <input
+            id="username-input"
+            type="text"
+            placeholder="Username"
+            onChange={(e) => newUsername(e.target.value)}
+          />
+          <input
+            id="pwd-input"
+            type="text"
+            placeholder="Password"
+            onChange={(e) => newPassword(e.target.value)}
+          />
           <input type="submit" value="Submit" />
         </form>
       </div>

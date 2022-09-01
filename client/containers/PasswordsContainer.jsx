@@ -8,7 +8,9 @@ import AccountCreator from "../components/AccountCreator";
 const axios = require("axios");
 const mapStateToProps = (state) => ({
   accountList: state.accounts.accountList,
-  newWebsite: state.accounts.newWebsite,
+  newWeb: state.accounts.newWeb,
+  newPwd: state.accounts.newPwd,
+  newUsr: state.accounts.newUsr,
 });
 
 const mapDispatchToProps = (dispatch) => ({
@@ -21,12 +23,21 @@ const mapDispatchToProps = (dispatch) => ({
   newWebsite: (newWebsite) => {
     dispatch(actions.newWebsiteActionCreator(newWebsite));
   },
+  newUsername: (newUsername) => {
+    dispatch(actions.newUsernameActionCreator(newUsername));
+  },
+  newPassword: (newPassword) => {
+    dispatch(actions.newPasswordActionCreator(newPassword));
+  },
 });
 
 class PasswordContainer extends Component {
   constructor(props) {
     super(props);
+    this.fetchAccounts = this.fetchAccounts.bind(this);
+    this.postAccount = this.postAccount.bind(this);
   }
+
   handleclick = (value) => () => {
     console.log(value);
   };
@@ -34,6 +45,7 @@ class PasswordContainer extends Component {
     fetch("/pwd/")
       .then((res) => res.json())
       .then((accounts) => {
+        // console.log("fetching accounts");
         this.props.loadAccounts(accounts);
       });
   }
@@ -41,32 +53,24 @@ class PasswordContainer extends Component {
     const requestOptions = {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        website: "www.nba.com",
-        username: "Lebron James",
-        password: "basketball",
-      }),
+      body: JSON.stringify(newAccount),
     };
     fetch("/pwd/post", requestOptions)
       .then((response) => response.json())
-      .then((account) => console.log(account));
+      .then(this.fetchAccounts);
   }
   componentDidMount() {
     this.fetchAccounts();
   }
-  // componentDidUpdate() {
-  //   this.fetchAccounts();
-  // }
+
   render() {
     // console.log(this.props);
     return (
       <div className="innerbox">
         <AccountCreator
-          // createAccount={this.props.createAccount}
           postAccount={this.postAccount}
-          newWebsite={this.props.newWebsite}
-          newUsername={this.props.newUsername}
-          newPassword={this.props.newPassword}
+          fetchAccounts={this.fetchAccounts}
+          {...this.props}
         />
         <PasswordDisplay loadAccounts={this.props.accountList} />
       </div>

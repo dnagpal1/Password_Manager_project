@@ -12,7 +12,7 @@ router.get("/", pwdController.getPassword, (req, res) => {
 });
 
 router.post("/post", pwdController.postAccount, (req, res) => {
-  return res.status(200).json(res.locals.fetched);
+  return res.status(200).json(res.locals.newAccount);
 });
 
 //-----Export------

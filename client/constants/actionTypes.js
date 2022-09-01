@@ -1,4 +1,6 @@
 // add action type constants i.e.:
-export const ADD_PWD = "ADD_PWD";
+export const LOAD_ACCOUNT = "LOAD_ACCOUNT";
+export const ADD_ACCOUNT = "ADD_ACCOUNT";
 export const UPDATE_PWD = "UPDATE_PWD";
 export const DELETE_PWD = "DELETE_PWD";
+export const NEW_WEBSITE = "NEW_WEBSITE";

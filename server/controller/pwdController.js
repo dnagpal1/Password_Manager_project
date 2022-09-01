@@ -18,4 +18,9 @@ pwdController.getPassword = (req, res, next) => {
     });
 };
 
+pwdController.postAccount = (req, res, next) => {
+  console.log(req.body);
+  // model.PasswordStorage.create()
+};
+
 module.exports = pwdController;

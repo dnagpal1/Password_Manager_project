@@ -11,5 +11,9 @@ router.get("/", pwdController.getPassword, (req, res) => {
   return res.status(200).json(res.locals.fetched);
 });
 
+router.post("/post", pwdController.postAccount, (req, res) => {
+  return res.status(200).json(res.locals.fetched);
+});
+
 //-----Export------
 module.exports = router;

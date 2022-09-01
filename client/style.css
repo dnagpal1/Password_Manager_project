@@ -1,3 +1,20 @@
 body {
-    background: lightblue;
+  background: lightblue;
+}
+.createMarket {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 40px;
+}
+
+.createMarket span {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.input-form {
+  display: flex;
+  gap: 40px;
 }
